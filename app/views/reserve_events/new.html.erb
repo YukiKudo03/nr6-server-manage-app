@@ -1,0 +1,38 @@
+<h1>HOW ARE YOU? </h1>
+<%= form_with(model: @reserve_event, url: create_reserve_event_path(instrument_id: @instrument.id), method: :post, local: true) do |form| %>
+    <ul>
+        <li><%= form.label :set_time, "Reserve time" %></li>
+        <p><%= form.datetime_field :set_time, value: DateTime.now %></p>
+    </ul>
+    <ul>
+        <li><%= form.label :input_text, "How are you feeling?" %></li>
+        <%= form.text_area :input_text, size: "50x30", id: "inputTextArea" %>
+    </ul>
+    <br>
+    <%= form.submit "Set", class: "btn" %>
+<% end %>
+<button id="getKoume" type="button">Get Koume</button>
+<br>
+<%= link_to "Home", root_path %>
+<script>
+    var koumeButton = document.getElementById('getKoume');
+    var textArea = document.getElementById('inputTextArea');
+    koumeButton.addEventListener('click', () =>{
+        var url = "<%= get_koume_path %>";
+        fetch(url, {
+            method: 'GET',
+            headers:{
+                'Content-Type': 'application/json'
+            }           
+        }).then((res) => {
+            if (!res.ok){
+                throw new Error(`${res.status} ${res.statusText}`);
+            }
+            return res.json();
+        }).then((data) =>{
+            textArea.innerText = data["tweet"];
+        }).catch((reason) => {
+            console.log(reason);
+        });
+    });
+</script>

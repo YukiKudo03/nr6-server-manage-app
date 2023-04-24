@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  instrument: one
+  set_time: 2023-03-19 15:27:16
+  completed_at: 2023-03-19 15:27:16
+  declined_at: 2023-03-19 15:27:16
+  execution_type: 1
+  type: 
+  execution_status: 1
+
+two:
+  instrument: two
+  set_time: 2023-03-19 15:27:16
+  completed_at: 2023-03-19 15:27:16
+  declined_at: 2023-03-19 15:27:16
+  execution_type: 1
+  type: 
+  execution_status: 1

@@ -1,0 +1,27 @@
+<h1>ReservedEvents#index</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Reserved_at</th>
+            <th>SetTime</th>
+            <th>Input Text</th>
+            <th>AngryLevel</th>
+            <th>AnalysisMessage</th>
+            <th>Show</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @reserve_events.each do |event| %>
+            <tr>
+                <td><%= event.created_at %></td>
+                <td><%= event.set_time %></td>
+                <td><%= event.input_text %></td>
+                <td><%= event.execution_type %></td>
+                <td><%= event.output_text %></td>
+                <td><%= link_to "Show", reserve_event_path(instrument_id: @instrument.id, id: event.id) %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+<%= link_to "Home", root_path %>
+<%= link_to "New Resevation", new_reserve_event_path(instrument_id: @instrument.id) %>

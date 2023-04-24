@@ -1,0 +1,11 @@
+<h1>Have a Nice Day!!</h1>
+<h4>your reservation for <%= @instrument.serial %></h4>
+<ul>    
+    <li>set time: <%= @reserve_event.set_time %></li>
+    <li>input_text: <%= @reserve_event.input_text %></li>
+    <li>angry_level: <%= @reserve_event.execution_type %></li>
+    <li>analysis: <%= @reserve_event.output_text %></li>
+</ul>
+<%= link_to "New Resevation", new_reserve_event_path(instrument_id: @instrument.id) %>
+<%= link_to "Home", root_path %>
+<%= link_to "Past Resevations" , reserve_events_path(instrument_id: @instrument.id) %>

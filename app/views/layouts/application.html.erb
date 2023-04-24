@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nr6ServerManageApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <% if false %>
+      <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+      <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <% end %>
+  </head>
+
+  <body>
+    <% flash.each do |message_type, message| %>
+      <div><%= message %></div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

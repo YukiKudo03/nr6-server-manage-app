@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reserved_at: 2023-03-26 20:02:40
+  instrument: one
+
+two:
+  reserved_at: 2023-03-26 20:02:40
+  instrument: two

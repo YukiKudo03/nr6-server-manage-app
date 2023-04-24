@@ -1,0 +1,16 @@
+<h1>Welcome to NRN-system</h1>
+<p>your serial: <%= @instrument.serial%></p>
+<% if @instrument.current_reserve_event.present? %>
+<ul>
+    <h4>Current Resavation Status</h4>
+    <li>Set Time: <%= @instrument.current_reserve_event.reserved_at %></li>
+    <li>Execution Type: <%= @instrument.current_reserve_event.execution_type %></li>
+</ul>
+<%= form_with(url: cancel_current_reserve_event_path(instrument_id: @instrument.id), method: :post, local: true) do |form| %>
+    <%= form.submit "Cancel" %>
+<% end %>
+<% else %>
+<h4>No Reservation was reserved</h4>
+<% end %>
+<%= link_to "New", new_reserve_event_path(instrument_id: @instrument.id) %>
+<%= link_to "Index", reserve_events_path(instrument_id: @instrument.id) %>
