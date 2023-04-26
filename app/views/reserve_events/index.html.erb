@@ -1,5 +1,5 @@
 <h1>ReservedEvents#index</h1>
-<table>
+<table class="table table-striped table-hover">
     <thead>
         <tr>
             <th>Reserved_at</th>
@@ -24,4 +24,4 @@
     </tbody>
 </table>
 <%= link_to "Home", root_path %>
-<%= link_to "New Resevation", new_reserve_event_path(instrument_id: @instrument.id) %>
+<%= link_to "New Resevation", new_reserve_event_path(instrument_id: @instrument.id), class: "btn btn-sm btn-primary" %>
