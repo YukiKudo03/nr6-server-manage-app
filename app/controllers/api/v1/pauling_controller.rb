@@ -3,11 +3,24 @@ class Api::V1::PaulingController < ApiController
 
     def check_resevation_condition
         if @instrument.current_reserve_event.present?
-            retJsonText = { 'instrument' => @instrument.serial, 'mode' => @instrument.current_reserve_event.execution_type }
+            if @instrument.current_reserve_event.executing?
+                return render :json => {reservation_exists: false}
+            end
+            retJsonText = { 
+                instrument: @instrument.serial, 
+                mode: @instrument.current_reserve_event.execution_type,
+                set_time: @instrument.current_reserve_event.set_time.iso8601,
+                reservation_exists: true
+            }
+            @instrument.current_reserve_event.checked!
             return render :json => retJsonText
         else
             return render :json => {reservation_exists: false}
         end
+    end
+
+    def begin_execution
+        @instrument.current_reserve_event.executing!
     end
 
     def complete_resevation

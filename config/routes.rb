@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       post 'check_condition', to: "pauling#check_resevation_condition"
       post 'complete_execution', to: "pauling#complete_resevation_condition"
+      post 'begin_execution', to: "pauling#begin_execution"
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
